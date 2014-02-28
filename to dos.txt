@@ -1,0 +1,11 @@
+To dos: 
+
+ - Design a people table with the following fields: 
+ 	- ID, Name, Access Group, username, password {not hashed}, Insert time,
+ - Move the codeigniter code
+ 	- set the database credentials, 
+ 	- host name and other credentials
+ 	- make sure all the tables are present. 
+ 	- Copy the model, view  and controller to the folder. 
+ 	- display with angular, apply the filter with the search bar, 
+ - 
