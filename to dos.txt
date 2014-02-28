@@ -1,7 +1,7 @@
 To dos: 
 
- - Design a people table with the following fields: 
- 	- ID, Name, Access Group, username, password {not hashed}, Insert time,
+ * Design a people table with the following fields: 
+ 	* ID, Name, Access Group, username, password {not hashed}, Insert time,
  - Move the codeigniter code
  	- set the database credentials, 
  	- host name and other credentials
