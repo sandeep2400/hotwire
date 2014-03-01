@@ -30,6 +30,6 @@ echo "<div class=\"write_title\">Directory (id - Name - Access Group - Username 
 	 		</div>
 
 		<input type='submit' ng-click='sendContact()' value='Send Mail'>
-
+		<span class = 'message'>{{emailmsg}}</span>
  	</div> 
 </div>

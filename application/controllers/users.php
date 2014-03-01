@@ -40,8 +40,35 @@ class Users extends CI_Controller {
 		$this->load->helper('file');
 		$query = $this->db->query("SELECT * FROM users");
 		$new_report =  $this->dbutil->csv_from_result($query);
-		echo $new_report;
-		write_file('data/user_report_'.date("m_d_Y_H_i_s").'.csv',$new_report);
+		$filename = 'data/user_report_'.date("m_d_Y_H_i_s").'.csv';
+		write_file($filename,$new_report);
+
+		$this->load->library('email');
+// ----- Gmail settings ---
+//		$this->email->from('gopal.sandeep@gmail.com');
+// 		$this->email->reply_to('gopal.sandeep@gmail.com');
+
+// ----- Office 365 settings ---
+		$this->email->from('sandyg@bathauthority.com');
+		$this->email->reply_to('sandyg@bathauthority.com');
+
+		$this->email->to('gopal.sandeep@gmail.com');
+		$this->email->subject('User Data Report');
+		$this->email->attach($filename);
+		$msg_body = 'Daily Dump of user report is attached here.';
+		$this->email->message($msg_body);
+		if ( !$this->email->send())
+		{	// Generate error
+			$message = 'Your message was not sent. Please try again later'; 
+			echo $this->email->print_debugger();
+		}
+		else
+		{
+			$message = 'Report was sent'; 
+			//$this->email->print_debugger();
+		}		
+			echo $message;
+	
 	}
 
 	public function update()

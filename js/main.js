@@ -1,7 +1,8 @@
 //main.js
 function UserController ($scope, $http){
 	$scope.users=[];
-	$scope.searchItem = 'admin'
+	$scope.searchItem = 'admin';
+	$scope.emailmsg = '';
 
 	var base_url = 'http://localhost/hotwire/';
 //Read all users
@@ -41,10 +42,8 @@ function UserController ($scope, $http){
 	$scope.sendContact = function()
 	{	
 		$http.get(base_url + 'users/sendmail')
-	   		.then(function(res) {   
-		   		for (var i=0; i<res.data.rows.length; i+=1){
-			   			$scope.users.push(res.data.rows[i]);
-		   			}
+	   		.then(function(returned) {   
+				$scope.emailmsg = returned.data;
 	    	}, function() {
 	    	    	alert('Could not connect to the server!');
 	    		}
@@ -55,6 +54,9 @@ function UserController ($scope, $http){
 function load () 
 {
 	$scope.users=[]; 
+	$scope.searchItem = 'admin';
+	$scope.emailmsg = '';
+	
 	var base_url = 'http://localhost/hotwire/';
 	$http.get(base_url + 'users/getall')
    		.then(function(res) {   
