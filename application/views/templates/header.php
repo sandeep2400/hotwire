@@ -1,6 +1,6 @@
 <html>
 <head>
-	<title>Hotwire User Manager</title>
+	<title>Hotwire Interview</title>
     <?php $this->load->helper('html');?> 
 
     <link href='http://fonts.googleapis.com/css?family=Istok+Web' rel='stylesheet' type='text/css'>
@@ -16,7 +16,7 @@
 
 <body>
 <div id="banner">
-	<a href="<?php echo base_url()?>" title="Home">User Manager</a>   
+	<a href="<?php echo base_url()?>" title="Home">Hotwire</a>   
 </div> 
 <?php 
 	$is_logged_in = $this->session->userdata('is_logged_in');

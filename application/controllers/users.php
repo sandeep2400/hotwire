@@ -34,6 +34,15 @@ class Users extends CI_Controller {
 		print($contr_recs);
 	}
 
+	public function postnote()
+	{
+			$obj = json_decode(file_get_contents('php://input'));
+			$message = $obj->message;
+			echo 'You entered: '.$message;
+	
+	}
+
+
 	public function sendmail()
 	{
 		$this->load->dbutil();
@@ -45,17 +54,17 @@ class Users extends CI_Controller {
 
 		$this->load->library('email');
 // ----- Gmail settings ---
-//		$this->email->from('gopal.sandeep@gmail.com');
-// 		$this->email->reply_to('gopal.sandeep@gmail.com');
+		$this->email->from('gopal.sandeep@gmail.com');
+ 		$this->email->reply_to('gopal.sandeep@gmail.com');
 
 // ----- Office 365 settings ---
-		$this->email->from('sandyg@bathauthority.com');
-		$this->email->reply_to('sandyg@bathauthority.com');
+//		$this->email->from('sandyg@bathauthority.com');
+//		$this->email->reply_to('sandyg@bathauthority.com');
 
 		$this->email->to('gopal.sandeep@gmail.com');
 		$this->email->subject('User Data Report');
 		$this->email->attach($filename);
-		$msg_body = 'Daily Dump of user report is attached here.';
+		$msg_body = 'Daily extract of user report is attached here.';
 		$this->email->message($msg_body);
 		if ( !$this->email->send())
 		{	// Generate error

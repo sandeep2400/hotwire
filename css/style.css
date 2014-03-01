@@ -194,3 +194,15 @@ font-size: 1.025em;
 	color: #222;
 } 
 
+#assignment{
+	width: 99%; 
+	margin: 1em;
+	text-align: left;
+	border-top:solid 1px #000;
+}
+
+.hotwire{
+	text-align: left;
+	font-size: 1.25em;
+	margin: 1em 1em 1em 1em;
+}

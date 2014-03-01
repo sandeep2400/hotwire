@@ -21,3 +21,11 @@ CREATE TABLE IF NOT EXISTS  `ci_sessions` (
 	PRIMARY KEY (session_id),
 	KEY `last_activity_idx` (`last_activity`)
 );
+
+INSERT INTO users (name, access_group, username, password, insert_time)
+VALUES 
+	('Tom Jones', 'admin', 'Tjones', '123abc', '5/22/13'), 
+	('Bill Richards', 'admin', 'brichards', 'cba321', '6/12/13'),
+	('John Paul', 'View', 'jpaul', '456asd', '1/1/14'),
+	('Sandeep Gopal', 'phpdev', 'sgopal', 'sgopal', '3/15/14')
+;

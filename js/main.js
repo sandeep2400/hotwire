@@ -1,8 +1,11 @@
 //main.js
 function UserController ($scope, $http){
 	$scope.users=[];
-	$scope.searchItem = 'admin';
+	$scope.searchItem = '';
 	$scope.emailmsg = '';
+	$scope.fadestat = false;
+	$scope.fadelink = 'Click me to make the others disappear';
+	$scope.posttext = 'this message will be posted';
 
 	var base_url = 'http://localhost/hotwire/';
 //Read all users
@@ -39,15 +42,43 @@ function UserController ($scope, $http){
 
 		}
 	}
+
 	$scope.sendContact = function()
 	{	
-		$http.get(base_url + 'users/sendmail')
+		$http.post(base_url + 'users/sendmail')
 	   		.then(function(returned) {   
 				$scope.emailmsg = returned.data;
 	    	}, function() {
 	    	    	alert('Could not connect to the server!');
 	    		}
 	    	);
+	}
+
+	$scope.fadelines = function()
+	{	
+		$scope.fadestat = !$scope.fadestat;
+		if ($scope.fadestat == true)
+		{
+			$scope.fadelink = 'Click me to get them back';
+			$http({
+				url: base_url + 'users/postnote',
+			    method: "POST",
+			    data: {message:$scope.posttext},
+			    headers: {'Content-Type': 'application/json'}		    
+
+			})
+			.then(function(response) {
+					alert(response.data);
+					$scope.posttext = "";
+				}, 
+				function(response) { // optional
+				   console.log(response.data);
+				}
+			);
+		}
+		else{
+			$scope.fadelink = 'Click me to make the others disappear';
+		}
 	}
 
 //reload page
