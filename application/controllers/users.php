@@ -61,7 +61,7 @@ class Users extends CI_Controller {
 //		$this->email->from('****************');
 //		$this->email->reply_to('**************');
 
-		$this->email->to('gopal.sandeep@gmail.com');
+		$this->email->to('zrosenberg@hotwiremail.com');
 		$this->email->subject('User Data Report');
 		$this->email->attach($filename);
 		$msg_body = 'Daily extract of user report is attached here.';
