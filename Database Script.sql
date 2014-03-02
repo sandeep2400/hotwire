@@ -1,6 +1,6 @@
-CREATE DATABASE hotwiredb;
+CREATE DATABASE hotwire;
 
-CREATE TABLE IF NOT EXISTS  `users` (
+CREATE TABLE IF NOT EXISTS  'users' (
 	id int(5) NOT NULL AUTO_INCREMENT,
 	name varchar(255) DEFAULT NULL,
 	access_group varchar(255) DEFAULT NULL,

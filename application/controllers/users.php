@@ -58,8 +58,8 @@ class Users extends CI_Controller {
  		$this->email->reply_to('gopal.sandeep@gmail.com');
 
 // ----- Office 365 settings ---
-//		$this->email->from('sandyg@bathauthority.com');
-//		$this->email->reply_to('sandyg@bathauthority.com');
+//		$this->email->from('****************');
+//		$this->email->reply_to('**************');
 
 		$this->email->to('gopal.sandeep@gmail.com');
 		$this->email->subject('User Data Report');
